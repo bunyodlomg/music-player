@@ -21,7 +21,7 @@ let songIndex = 0;
 
 document.body.style.backgroundImage = `url('./album/${songs[songIndex]}BG.jpg')`
 title.textContent = songs[songIndex]
-
+audio.src = `./musics/${songs[songIndex]}.mp3`
 
 btnPlay.addEventListener('click', (e) => {
     audio.src = `./musics/${songs[songIndex]}.mp3`
@@ -29,6 +29,7 @@ btnPlay.addEventListener('click', (e) => {
     if (isPlay) {
         pause()
     } else {
+        audio.play()
         play()
     }
 
@@ -52,7 +53,6 @@ audio.addEventListener('timeupdate', (e) => {
     endM = endM < 10 ? "0" + endM : endM;
     end.textContent = `${endM}:${endS}`
 
-
     var startM = Math.floor(audio.currentTime / 60);
     var startS = Math.floor(audio.currentTime % 60);
     startS = startS < 10 ? "0" + startS : startS;
@@ -62,8 +62,6 @@ audio.addEventListener('timeupdate', (e) => {
     if (percent == Math.trunc(audio.duration)) {
         nextSong()
     }
-
-
 })
 
 progressSong.addEventListener('input', (e) => {
@@ -82,7 +80,8 @@ volume.addEventListener('input', (e) => {
     audio.volume = e.target.value / 10
     if (e.target.value == 0) {
         mute.innerHTML = `<i id="volumez-icon" class="fa-solid fa-volume-xmark"></i>`
-    } else {
+    }
+    else {
         mute.innerHTML = `<i id="volumez-icon" class="fa-solid fa-volume-high"></i>`
 
     }
@@ -139,6 +138,9 @@ function muteVolume() {
         audio.volume = 0
     } else {
         mute.innerHTML = `<i id="volumez-icon" class="fa-solid fas fa-volume-high"></i>`
-        audio.volume = volume.value / 1
+        audio.volume = volume.value / 10
+    }
+    if (ch.classList.contains("fa-volume-xmark") && audio.volume == 0) {
+        mute.innerHTML = `<i id="volumez-icon" class="fa-solid fa-volume-xmark"></i>`
     }
 }
