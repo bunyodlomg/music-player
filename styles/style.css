@@ -1,0 +1,134 @@
+@import url(https://fonts.googleapis.com/css2?family=Varela&display=swap);
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Varela', sans-serif;
+    background-color: inherit;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    gap: 50px;
+    padding: 50px;
+    border-radius: 14px;
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(5, 5, 5, 0.35) 0px -2px 6px 0px inset;
+    text-shadow: 2px 2px 5px #000;
+    backdrop-filter: blur(5px);
+}
+
+.title {
+    height: 82px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.img-container {
+    height: 220px;
+    width: 220px;
+    margin-top: -30px;
+}
+
+.cover {
+    height: inherit;
+    width: inherit;
+    object-fit: cover;
+    border-radius: 50%;
+    animation: rotation 5s linear infinite;
+    animation-play-state: paused;
+
+}
+
+.time {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    margin-bottom: -45px;
+    user-select: none;
+}
+
+.progress {
+    cursor: pointer;
+    margin-bottom: -35px;
+    width: 80%;
+    background-color: #fff;
+    height: 8px;
+    border-radius: 8px;
+}
+
+.volume-form {
+    display: flex;
+    align-items: center;
+    margin-bottom: -35px;
+
+}
+
+.volume-form span {
+    width: 22px;
+    font-size: 1.1rem;
+    margin-right: 10px;
+}
+
+
+.navigation {
+    display: flex;
+    gap: 30px;
+}
+
+.btn {
+    border: 0;
+    outline: none;
+    background-color: transparent;
+    color: fff;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+#volume {
+    background: white;
+    border-radius: 8px;
+    height: 7px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.btn-big {
+    font-size: 2.2rem;
+}
+
+.container.play .cover {
+    animation-play-state: running;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
